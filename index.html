@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning de Sport</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function startTimer(duration, display) {
+            let timer = duration, minutes, seconds;
+            const interval = setInterval(() => {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    clearInterval(interval);
+                    display.textContent = "Terminé!";
+                }
+            }, 1000);
+        }
+
+        function beginTimer(durationInMinutes) {
+            const duration = 60 * durationInMinutes;
+            const display = document.querySelector('#time');
+            startTimer(duration, display);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🏋️‍♂️ Planning de Sport 🏋️‍♂️</h1>
+            <p>Objectif : Perte de poids et gain de muscle 💪</p>
+        </header>
+
+        <section class="day">
+            <h2>📅 Jour 1, 3, 5 : Renforcement Musculaire</h2>
+            <ul>
+                <li><strong>Échauffement (3 minutes) 🔥</strong>
+                    <ul>
+                        <li>Jumping Jacks : 1 minute 🕒</li>
+                        <li>Squats : 1 minute 🕒</li>
+                        <li>Rotation des bras : 1 minute 🕒</li>
+                    </ul>
+                    <button onclick="beginTimer(1)">Démarrer le timer <div id="time">01:00</div></button>
+                </li>
+                <li><strong>Entraînement (12 minutes) 💥</strong>
+                    <ul>
+                        <li>Pompes : 3 séries de 10-15 répétitions 💪</li>
+                        <li>Squats avec poids : 3 séries de 12 répétitions 🏋️‍♂️</li>
+                        <li>Tractions : 3 séries de 5-10 répétitions 🤸‍♂️</li>
+                        <li>Fentes avec poids : 3 séries de 10 répétitions par jambe 🦵</li>
+                        <li>Plank : 3 séries de 30-60 secondes ⏱️</li>
+                    </ul>
+                </li>
+                <li><strong>Retour au calme (2 minutes) 😌</strong>
+                    <ul>
+                        <li>Étirements des bras, jambes et dos 🧘‍♂️</li>
+                    </ul>
+                    <button onclick="beginTimer(2)">Démarrer le timer <div id="time">02:00</div></button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="day">
+            <h2>🚴 Jour 2, 4, 6 : Cardio et Endurance</h2>
+            <ul>
+                <li><strong>Échauffement (3 minutes) 🔥</strong>
+                    <ul>
+                        <li>Marcher ou courir sur place : 1 minute 🕒</li>
+                        <li>Jumping Jacks : 1 minute 🕒</li>
+                        <li>Rotation des chevilles : 1 minute 🕒</li>
+                    </ul>
+                    <button onclick="beginTimer(1)">Démarrer le timer <div id="time">01:00</div></button>
+                </li>
+                <li><strong>Entraînement Cardio (12-15 minutes) 🏃‍♂️</strong>
+                    <ul>
+                        <li>Vélo : 12-15 minutes à intensité modérée à élevée 🚴‍♂️</li>
+                    </ul>
+                    <button onclick="beginTimer(15)">Démarrer le timer <div id="time">15:00</div></button>
+                </li>
+                <li><strong>Retour au calme (2 minutes) 😌</strong>
+                    <ul>
+                        <li>Étirements des jambes et du dos 🧘‍♂️</li>
+                    </ul>
+                    <button onclick="beginTimer(2)">Démarrer le timer <div id="time">02:00</div></button>
+                </li>
+            </ul>
+        </section>
+
+        <section class="day">
+            <h2>🛌 Jour 7 : Repos Actif ou Étirements</h2>
+            <ul>
+                <li><strong>Étirements complets (15-20 minutes) 🧘‍♂️</strong>
+                    <ul>
+                        <li>Étirements pour tout le corps : cou, épaules, bras, dos, jambes, chevilles 🤸‍♂️</li>
+                    </ul>
+                    <button onclick="beginTimer(20)">Démarrer le timer <div id="time">20:00</div></button>
+                </li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Conçu par David pour rester en forme à la maison ! ✨</p>
+        </footer>
+    </div>
+</body>
+</html>
